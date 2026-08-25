@@ -1,0 +1,44 @@
+site_name: Conf2Git Documentation
+site_description: Automatically mirror Confluence spaces to GitHub as Markdown.
+site_author: Magnascale
+site_url: https://magnascale.github.io/conf2git-documentation/
+repo_url: https://github.com/magnascale/conf2git-documentation
+repo_name: GitHub
+edit_uri: ''
+copyright: Copyright &copy; 2026 Magnascale Inc.
+strict: true
+use_directory_urls: true
+
+theme:
+  name: mkdocs
+  locale: en
+  color_mode: auto
+  user_color_mode_toggle: true
+  nav_style: dark
+
+nav:
+  - Home: index.md
+  - Get started: getting-started.md
+  - Guides:
+      - GitHub authorization: github-authorization.md
+      - Synchronization and managed files: synchronization-and-managed-files.md
+      - Conversion support: conversion-support.md
+      - Troubleshooting: troubleshooting.md
+      - Recovery and lifecycle: recovery-and-lifecycle.md
+      - Security and data flow: security-and-data-flow.md
+      - Backup limitations: limitations.md
+  - Support: https://magnascale.com/contact-us/
+
+plugins:
+  - search
+
+markdown_extensions:
+  - sane_lists
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+      toc_depth: 2-4
+
+extra_css:
+  - stylesheets/extra.css

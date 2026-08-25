@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "0fa456802ca9ef8434e9633728b0548268a2db86",
+  "files": {
+    ".github/workflows/pages.yml": "46a44fb6ff16aa79c9459b7d67128664e53688795050d45d78ea5b730d091812",
+    ".gitignore": "eb0abfc9037b16de7afe6d04c7b7d6b63a9170717b81b6dc17997b4885210891",
+    "docs/assets/conf2git-logo.png": "06f4368c6bbca48cf60db4a55686126f242f47d1d70a5f3a02534ec1966f48b1",
+    "docs/conversion-support.md": "c69a3933813d9e2092609ded6bdd0e2eb6e1d7b4bd292e1816885074e8ee65dd",
+    "docs/getting-started.md": "f0f6137ef10ea874a116df608fb7b3ba38db588b348f853242aefb55f0ad04a2",
+    "docs/github-authorization.md": "c2930dadd4293e1123a1734bcc544a7b40e50992ca6c65ce31c4252bc92e5c01",
+    "docs/index.md": "1187ff432b568b257e830aab79dcb9194c449e693f085dc55752cc639ebb9134",
+    "docs/limitations.md": "4f93d2e064b3215de96e5632252d194ed1fbef93528352e142975dbfe46eb1e2",
+    "docs/recovery-and-lifecycle.md": "c06b5de6a94c8efbee1dcfda2bcf35076f6b3c30d5bf39135d6c70d495d651e3",
+    "docs/security-and-data-flow.md": "d003e30ed558f8469ec872f19358c0dca1165c3a7a4ce804497fcfb152efd352",
+    "docs/stylesheets/extra.css": "15ae0068337617ce3b355e7bcd556f39cd318a280220a8eb07294317ee6bca62",
+    "docs/synchronization-and-managed-files.md": "7de7121b99ed8ce32e1c1503e94d8ee7b81e0dfb93e88e1b337c0a33d073b4a4",
+    "docs/troubleshooting.md": "f55841b8820ec088746d083801fcfb6b2611a8d602971316d4c2604e9902ad55",
+    "mkdocs.yml": "342f66979c4c411a3cc11cf7117d0eca6e1907b5761bf7221ecb0d1ec7a43609",
+    "README.md": "179162c5ff7e99ba8f82c3545d866588a1497159db2135c8244e3470017632b2",
+    "requirements.txt": "a97e1e4c59b20cb8464276f9b97466f0a1aeeb1cdad373c5284fa224b47215eb"
+  }
+}

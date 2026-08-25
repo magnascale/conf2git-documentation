@@ -1,0 +1,57 @@
+:root {
+  --conf2git-navy: #06152f;
+  --conf2git-blue: #387fda;
+  --conf2git-cyan: #18d5e8;
+  --conf2git-coral: #ff6558;
+}
+
+.navbar {
+  background: linear-gradient(110deg, var(--conf2git-navy), #102b69);
+  border-bottom: 2px solid var(--conf2git-cyan);
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 22%);
+}
+
+.navbar-brand {
+  align-items: center;
+  display: inline-flex;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.navbar-brand::before {
+  background: url('../assets/conf2git-logo.png') center / contain no-repeat;
+  content: '';
+  display: inline-block;
+  height: 2.35rem;
+  margin-right: 0.65rem;
+  width: 2.35rem;
+}
+
+a {
+  text-underline-offset: 0.16em;
+}
+
+.bs-sidebar .nav > li > a.active,
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+  border-left-color: var(--conf2git-coral);
+}
+
+table {
+  font-size: 0.94rem;
+}
+
+thead {
+  border-bottom: 2px solid var(--conf2git-blue);
+}
+
+code {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand::before {
+    height: 2rem;
+    width: 2rem;
+  }
+}
