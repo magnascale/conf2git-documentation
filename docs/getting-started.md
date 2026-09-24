@@ -12,7 +12,7 @@ You need all of the following:
 - an accessible Confluence space to mirror;
 - a current paid licence or standard Atlassian Marketplace evaluation for Conf2Git;
 - a GitHub repository and a GitHub organization owner or other person authorized to install the
-  GitHub App;
+  [Conf2Git GitHub App](https://github.com/apps/conf2git);
 - repository-administrator access for the GitHub user who will configure or repair the binding;
 - permission to grant the GitHub App **Contents: read and write** access; and
 - a dedicated branch name such as `confluence-sync` that is not the repository default branch.
@@ -35,7 +35,9 @@ are preserved while synchronization is paused.
 
 ## 3. Install the GitHub App
 
-Use the verified GitHub App installation link displayed by Conf2Git. In GitHub:
+Install the public **Conf2Git** GitHub App from
+[github.com/apps/conf2git](https://github.com/apps/conf2git). You can also use the verified
+installation link displayed by Conf2Git; both lead to the same App. In GitHub:
 
 1. Choose the intended personal account or organization.
 2. Choose **Only select repositories**.

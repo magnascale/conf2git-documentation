@@ -17,7 +17,8 @@ Before setup, make sure you have:
 
 - Confluence site-administrator access;
 - a current paid licence or standard Atlassian Marketplace evaluation;
-- a GitHub organization owner or authorized GitHub App installer available;
+- a GitHub organization owner or authorized GitHub App installer available to install the
+  [Conf2Git GitHub App](https://github.com/apps/conf2git);
 - repository-administrator access for the GitHub user who will verify the connection; and
 - a dedicated target branch name that is not the repository default branch.
 

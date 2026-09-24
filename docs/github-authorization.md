@@ -6,6 +6,9 @@ GitHub App installation authentication is the only supported GitHub authenticati
 Conf2Git does not support personal access tokens, classic tokens, fine-grained personal access
 tokens, deploy keys, or machine-user credentials.
 
+The App is published publicly on GitHub at
+[github.com/apps/conf2git](https://github.com/apps/conf2git).
+
 Interactive setup and unattended synchronization have distinct purposes:
 
 - The current Confluence administrator completes Forge-managed GitHub authorization to discover
