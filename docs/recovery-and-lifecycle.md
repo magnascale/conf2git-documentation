@@ -22,6 +22,11 @@ synchronization.
 
 ## Authorization loss and rebinding
 
+To disconnect or switch your personal GitHub setup/repair account, use **Disconnect / switch
+GitHub account** in **Connections** and follow the
+[personal-account steps](github-authorization.md#disconnect-reconnect-or-switch-your-personal-github-account).
+This preserves every mapping's saved connection and starts no synchronization.
+
 Background authorization loss atomically fails the affected run, releases its active ownership, and
 marks only that exact mapping **Needs attention**. It does not authorize publication or cleanup.
 Select **Test connection** to open the repair panel and use **Test current binding** first. If
