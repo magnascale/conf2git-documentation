@@ -80,7 +80,9 @@ unavailable test preserves the current binding and starts no synchronization.
   Refresh later; do not infer that publication happened.
 - **GitHub authorization status unavailable**: the bounded global status read could not prove a
   current result. This is not proof of revocation and does not change a saved mapping. Refresh the
-  authorization status once and follow only the diagnostic/action then shown.
+  authorization status once, or open **Disconnect / switch GitHub account** in **Connections**.
+  Follow the [personal-account recovery steps](github-authorization.md#disconnect-reconnect-or-switch-your-personal-github-account).
+  Stop if the settings entries cannot be identified confidently; contact support if checks keep failing.
 - **Run or item unavailable**: the requested record is outside the bounded history/detail window,
   stale, malformed, or not part of the mapping. This does not recreate or change it.
 - **Plan unavailable/refused/rejected**: no rebuild or repair starts. Read the reason code in

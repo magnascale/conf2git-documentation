@@ -60,6 +60,44 @@ protection problem by selecting the default branch.
 
 ## Reauthorization and binding replacement
 
+### Disconnect, reconnect, or switch your personal GitHub account
+
+In **Connections**, select **Disconnect / switch GitHub account**. This action is available during
+setup and repair, including when the authorization check is unavailable. The panel shows your
+current GitHub login only after a fresh check succeeds.
+
+1. Open **Atlassian connected-account settings** from the panel using the same Atlassian account.
+   Under **Atlassian third party account access**, find the exact connection name displayed in
+   Conf2Git, including its identifier in parentheses, and check the GitHub login when available.
+2. Choose **Revoke** for that connection. If entries are generic **GitHub**, duplicated, or cannot
+   be matched confidently, stop and contact support. Do not guess or revoke every GitHub entry.
+3. Return to Conf2Git and select **Return and refresh account**. **Disconnection confirmed** means
+   no account is saved for you in this app environment. **Unavailable** does not confirm removal;
+   **needs fresh authorization** means a saved account remains.
+4. To switch, sign in to the intended account on GitHub, then select **Reconnect GitHub** and
+   complete consent. Return and refresh again. Check the displayed login and select
+   **Use @login for setup / repair** only when it is the intended account. If the old login returns,
+   the switch did not complete; do not continue with that account.
+
+You can also **Retry GitHub authorization** when the check is unavailable or the saved account
+needs attention. Retrying consent alone does not remove a connection or guarantee a different
+account. Cancellation or a failed check leaves setup blocked; return and refresh to try again.
+If the access prompt remains after cancellation, reload Conf2Git, reopen account management, and
+refresh.
+A reload starts a new check and does not remember a claimed disconnection or completed consent.
+Opening account settings requires another return-and-refresh check. Closing account management
+without choosing the verified login leaves setup requiring a fresh authorization check.
+
+This manages your personal setup/repair authorization. Existing Confluence-to-GitHub sync uses
+each mapping's saved GitHub App installation binding. Account management does not delete
+mappings, replace their connections, uninstall the App, start synchronization, or change files.
+
+Removing Atlassian's saved connection is separate from revoking your personal GitHub App
+authorization under **GitHub Settings → Applications → Authorized GitHub Apps**. Uninstalling
+under **Installed GitHub Apps** changes repository access and is not this account-management flow.
+
+### Repair a mapping's connection
+
 Use **Reauthorize GitHub** when Forge-managed user consent is missing or revoked. Conf2Git performs
 one fresh status read when it observes the consent flow returning; use **Refresh authorization
 status** if that return or read was unavailable. Returning focus alone never proves authorization.
@@ -69,8 +107,8 @@ intended repository genuinely changed, use **Change connection**, test the repla
 activate it only after reviewing the exact destination.
 
 An unavailable global authorization status does not by itself prove that consent was revoked and
-does not change a saved mapping binding. Refresh the status once and follow **Reauthorize GitHub**
-only when Conf2Git reports the corresponding authorization-required or revoked diagnostic.
+does not change a saved mapping binding. Refresh the status once, or open **Disconnect / switch
+GitHub account** for the personal-account recovery flow. Persistent failures may require support.
 
 The current binding remains authoritative until the replacement passes a fresh server validation
 and the atomic activation succeeds. Testing or activating a binding does not start a sync, publish
