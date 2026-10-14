@@ -54,6 +54,27 @@ again.
 
 ## GitHub setup and authorization diagnostics
 
+### A new repository cannot complete setup or its first sync
+
+If connection verification or the first synchronization fails for a newly created GitHub
+repository, check its **Code** tab and confirm that the default branch has at least one commit.
+A repository with no commits is not currently supported. The displayed repository or branch
+diagnostic may not identify this condition specifically; other access or branch problems can
+also cause a failure.
+
+To initialize an empty repository, select **Add a README** in GitHub, add a short description,
+and complete **Commit changes** to create the first commit on the default branch. If GitHub
+offers **creating a new file** instead, name it `README.md` and commit it. Any initial commit on
+the default branch is sufficient; an existing commit does not need an additional README. See
+the [step-by-step initialization guide](getting-started.md#initialize-an-empty-github-repository).
+
+Return to Conf2Git and retry the connection test or setup step. Once the mapping is **Ready**,
+retry **Sync now** if the first synchronization failed. Keep the target set to a dedicated
+non-default branch such as `confluence-sync`; that branch may be absent before the first sync.
+Conf2Git mirrors Confluence to GitHub and never initializes or writes the default branch.
+
+### Setup diagnostic codes
+
 These codes appear while testing, activating, or repairing a GitHub binding. A rejected or
 unavailable test preserves the current binding and starts no synchronization.
 

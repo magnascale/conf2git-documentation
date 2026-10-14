@@ -11,16 +11,37 @@ You need all of the following:
 - a Confluence Cloud site and Confluence site-administrator access;
 - an accessible Confluence space to mirror;
 - a current paid licence or standard Atlassian Marketplace evaluation for Conf2Git;
-- a GitHub repository and a GitHub organization owner or other person authorized to install the
-  [Conf2Git GitHub App](https://github.com/apps/conf2git);
+- a GitHub repository with at least one commit on its default branch, and a GitHub organization
+  owner or other person authorized to install the [Conf2Git GitHub App](https://github.com/apps/conf2git);
 - repository-administrator access for the GitHub user who will configure or repair the binding;
 - permission to grant the GitHub App **Contents: read and write** access; and
 - a dedicated branch name such as `confluence-sync` that is not the repository default branch.
+
+A repository with no commits is not currently supported. Initialize it before configuring
+Conf2Git. If the default branch already has a commit, no additional README is needed.
 
 Choose the repository and base path before starting. A repository base path is a non-empty,
 repository-relative folder such as `confluence/engineering`. Do not use a leading slash,
 backslash, `..`, or an empty path segment. Two mappings cannot overlap on the same repository and
 branch.
+
+### Initialize an empty GitHub repository
+
+1. Open the repository's **Code** tab in GitHub and select **Add a README**. If GitHub instead
+   offers **creating a new file**, select it and name the file `README.md`.
+2. Add a short description, select **Commit changes**, and complete GitHub's commit dialog to
+   create the initial commit on the default branch.
+3. Confirm that the default branch now shows at least one commit. Return to Conf2Git and retry
+   the connection test or setup step before starting the first synchronization.
+
+When creating a new repository, you can select **Add README** (also called **Add a README**) on
+GitHub's creation form to initialize it immediately. Any initial commit on the default branch
+satisfies this requirement; the README file itself is optional. See GitHub's
+[repository creation guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
+for the web setup options.
+
+You create this initial commit in GitHub. Conf2Git mirrors Confluence to GitHub on the dedicated
+sync branch and never initializes or writes the repository's default branch.
 
 ## 2. Install the Marketplace app
 
@@ -79,6 +100,10 @@ schedule** only when you want the mapping to use Conf2Git's fixed Forge-managed 
 the mapping must still become **Ready** before automatic synchronization is eligible.
 
 ## 6. Bind and test the repository
+
+First confirm that the repository's default branch contains at least one commit. If it is empty,
+follow [Initialize an empty GitHub repository](#initialize-an-empty-github-repository) and retry
+this step.
 
 On the draft mapping, select **Configure connection**:
 
