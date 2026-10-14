@@ -43,6 +43,10 @@ for server-side configuration verification; background mirroring remains install
 
 ## Target branch rules
 
+- The repository's default branch must already contain at least one commit before setup or the
+  first synchronization. A repository with no commits is not currently supported. Initialize it
+  using GitHub's **Add a README** option (or another initial commit), then retry the Conf2Git
+  connection test. Follow the [GitHub web steps](getting-started.md#initialize-an-empty-github-repository).
 - The target must be a dedicated non-default branch. The default is `confluence-sync`.
 - Conf2Git never writes the repository default branch.
 - If the target is absent on the first sync, the current default-branch tree is used only as the
@@ -57,6 +61,9 @@ for server-side configuration verification; background mirroring remains install
 
 Branch protection must allow the GitHub App to update the dedicated branch. Never solve a branch
 protection problem by selecting the default branch.
+
+An absent dedicated sync branch is supported for the first synchronization; a default branch
+with no commit is not. Conf2Git does not create the repository's initial commit for you.
 
 ## Reauthorization and binding replacement
 
