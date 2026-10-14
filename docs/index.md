@@ -24,6 +24,7 @@ Before setup, make sure you have:
 
 ## Guides
 
+- [Frequently asked questions](faq.md)
 - [Install and complete the first sync](getting-started.md)
 - [GitHub authorization and branch behavior](github-authorization.md)
 - [Data flow, scopes, permissions, storage, and retention](security-and-data-flow.md)

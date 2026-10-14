@@ -19,6 +19,7 @@ theme:
 nav:
   - Home: index.md
   - Get started: getting-started.md
+  - FAQ: faq.md
   - Guides:
       - GitHub authorization: github-authorization.md
       - Synchronization and managed files: synchronization-and-managed-files.md
