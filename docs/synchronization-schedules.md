@@ -30,6 +30,9 @@ can make execution later. The preview describes the calendar and does not mean w
 Use the overview and run history to see what actually happened.
 
 - Times follow the selected timezone, independently of your computer's timezone.
+- Scheduling follows the app's current timezone rules. Your browser's preview may differ after
+  a timezone rule change; previews are advisory. If your browser does not recognize a saved
+  timezone, upcoming times are labelled in UTC. You can still disable the schedule.
 - During a spring clock-change gap, a missing time moves forward by the gap. For example,
   02:30 becomes 03:30 when clocks jump forward one hour.
 - During an autumn overlap, a repeated time has one opportunity at its earlier occurrence.
