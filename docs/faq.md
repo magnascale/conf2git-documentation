@@ -51,11 +51,13 @@ These are publication and ownership safeguards, not bidirectional conflict resol
 
 ## What about scheduling, webhooks, rate limits, private repositories, and deletes, moves, or renames?
 
-**Scheduling and webhooks:** Use **Sync now** for a manual run, or enable the fixed daily schedule
-for a ready mapping. New mappings have daily scheduling disabled. The daily opportunity is
-managed by Forge and has no exact local-time guarantee. Custom schedules, cron expressions,
-webhook-triggered synchronization, and real-time synchronization are not supported. Source
-changes are reflected by a subsequent successful sync, not immediately when they happen.
+**Scheduling and webhooks:** Use **Sync now** for a manual run, or choose **Edit schedule** for
+a ready mapping. New mappings start disabled. Daily, weekly, and monthly presets support a
+timezone and local opportunity time, with hourly checks and no exact execution or completion
+guarantee. Existing daily schedules retain Forge-managed timing until explicitly replaced. See
+[Synchronization schedules](synchronization-schedules.md) for clock changes, monthly overflow,
+catch-up, and recovery. Arbitrary cron, sub-daily schedules, webhooks, and real-time synchronization
+are unavailable.
 
 **Rate limits and scale:** Runs honor supported Confluence and GitHub rate-limit guidance and
 use bounded retries with backoff. Provider throttling can delay a run; exhausted retries are

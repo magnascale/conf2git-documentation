@@ -29,6 +29,7 @@ Before setup, make sure you have:
 - [GitHub authorization and branch behavior](github-authorization.md)
 - [Data flow, scopes, permissions, storage, and retention](security-and-data-flow.md)
 - [Synchronization and managed-file behavior](synchronization-and-managed-files.md)
+- [Synchronization schedules and timing](synchronization-schedules.md)
 - [Conversion support and image behavior](conversion-support.md)
 - [Diagnostics and troubleshooting](troubleshooting.md)
 - [Recovery and lifecycle operations](recovery-and-lifecycle.md)

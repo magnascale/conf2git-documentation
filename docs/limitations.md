@@ -8,8 +8,9 @@ Use this exact operating assumption:
 In particular:
 
 - It is not two-way synchronization and does not publish GitHub changes to Confluence.
-- It is not real-time synchronization. Manual runs and eligible daily opportunities use queued,
-  bounded work; the daily interval has no exact wall-clock promise.
+- It is not real-time synchronization. Manual runs and eligible scheduled opportunities use queued,
+  bounded work. Configured daily, weekly, and monthly opportunities are checked hourly; execution
+  and completion times are not guaranteed. See [Synchronization schedules](synchronization-schedules.md).
 - It does not preserve every Confluence feature, behavior, layout, macro, attachment type,
   permission model, version-history detail, comment, annotation, or provider datum.
 - Generated Markdown and images are subject to the documented conversion behavior and the exact

@@ -44,7 +44,7 @@ behavior](github-authorization.md) for the operation-level explanation.
 Forge storage may retain bounded categories such as:
 
 - mapping configuration: Confluence space identity; GitHub installation/repository identity;
-  branch; base path; schedule flag; mapping status; and configured limits;
+  branch; base path; schedule settings, timezone, revision, and effective time; mapping status; and configured limits;
 - non-secret authorization health, last-check timestamps, and a bounded mapping-scoped
   authorization audit;
 - page and attachment identifiers and metadata, source versions, generated paths, hashes, and Git
@@ -100,8 +100,10 @@ bindings, generated files, ownership state, last-known-good success, or history.
 
 ## Manual and scheduled synchronization
 
-**Sync now** and an eligible daily opportunity use the same bounded reconciliation behavior.
-The daily schedule is a Forge-managed `day` interval and does not promise an exact local time. A
+**Sync now** and an eligible scheduled opportunity use the same bounded reconciliation behavior.
+Configured daily, weekly, and monthly opportunities are checked hourly and do not promise exact
+execution or completion times. Existing daily schedules retain their Forge-managed timing until
+explicitly replaced. See [Synchronization schedules](synchronization-schedules.md). A
 mapping marked **Schedule disabled**, paused, already running, or needing attention is not
 automatically dispatched. Manual work also requires a ready mapping and current entitlement.
 

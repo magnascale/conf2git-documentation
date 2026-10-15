@@ -95,9 +95,9 @@ Select **Create draft mapping** and complete the fields:
 
 Select **Save draft mapping**. A draft is configuration only: it has no verified GitHub binding and
 cannot synchronize. Public v1 permits at most five mappings that have not been removed per
-Confluence site. New mappings show **Daily schedule: Disabled** by default. Select **Enable daily
-schedule** only when you want the mapping to use Conf2Git's fixed Forge-managed daily opportunity;
-the mapping must still become **Ready** before automatic synchronization is eligible.
+Confluence site. New mappings show **Schedule: Disabled** by default. Use **Edit schedule** only
+when you want automatic synchronization, then explicitly save a daily, weekly, or monthly
+preset. The mapping must still become **Ready** before automatic synchronization is eligible.
 
 ## 6. Bind and test the repository
 
@@ -126,10 +126,11 @@ details; they do not authorize access by themselves.
 ## 7. Start the first synchronization
 
 On a **Ready** mapping, select **Sync now**. The request returns quickly and queues a run. The same
-bounded reconciliation engine is used for manual and eligible daily work. **Sync now** remains
-available whether the daily schedule is enabled or disabled. Use **Enable daily schedule** or
-**Disable daily schedule** on the mapping card to change automatic eligibility; the cadence is
-fixed to daily and has no time-of-day or timezone setting.
+bounded reconciliation engine is used for manual and eligible scheduled work. **Sync now** remains
+available whether the schedule is enabled or disabled. Use **Edit schedule** on the mapping card
+to choose Disabled, Daily, Weekly, or Monthly, a timezone, and a local time. Review the summary
+and next three opportunities before saving. Read [Synchronization schedules](synchronization-schedules.md)
+for timing, clock changes, missed opportunities, and existing daily schedules.
 
 Do not start another mapping operation while the run is active. In **Mapping overview**, check:
 
@@ -137,8 +138,8 @@ Do not start another mapping operation while the run is active. In **Mapping ove
 - the run ID;
 - discovered and processed counters;
 - the latest attempt independently from the last successful mirror; and
-- the next scheduled opportunity. A daily schedule is a Forge-managed opportunity, not an exact
-  wall-clock promise. If the mapping shows **Schedule disabled**, only manual synchronization is
+- the next scheduled opportunity. Configured opportunities are checked hourly and have no exact
+  execution or completion guarantee. If the mapping shows **Schedule disabled**, only manual synchronization is
   available under the current configuration. After changing the setting, confirm the persisted
   enabled or disabled state in the mapping card and overview.
 
