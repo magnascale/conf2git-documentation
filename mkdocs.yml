@@ -23,6 +23,7 @@ nav:
   - Guides:
       - GitHub authorization: github-authorization.md
       - Synchronization and managed files: synchronization-and-managed-files.md
+      - Synchronization schedules: synchronization-schedules.md
       - Conversion support: conversion-support.md
       - Troubleshooting: troubleshooting.md
       - Recovery and lifecycle: recovery-and-lifecycle.md

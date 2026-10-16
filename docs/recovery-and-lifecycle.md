@@ -68,7 +68,7 @@ Ordinary queued work should be left to its automatic retries. If the UI reports 
 same run becomes eligible for fenced recovery after five minutes without a valid heartbeat; this
 does not mean that every run should finish within five minutes. After bounded platform delivery
 retries end, a later server-accepted manual recovery request for the same mapping, when offered, or
-the daily dispatcher may enqueue only the exact identifier-only event proven by the unchanged run,
+the scheduled dispatcher may enqueue only the exact identifier-only event proven by the unchanged run,
 stale worker lease, and unexpired checkpoint. The existing worker must still recover and revalidate
 the same run; no replacement run is created. Refresh and use an offered safe retry/resume action
 when available. Do not create competing mappings or edit the generated branch to force recovery.
