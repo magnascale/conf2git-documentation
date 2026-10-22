@@ -1,0 +1,102 @@
+/* Match Material 9.7's drawer breakpoint; desktop navigation is unchanged. */
+.conf2git-drawer-toggle,
+.conf2git-drawer-close {
+  display: none;
+}
+
+@media screen and (max-width: 76.234375em) {
+  /* If this enhancement cannot load, offer all guide links in normal flow.
+     Material's own .js class is not evidence our script initialized. */
+  html:not(.conf2git-drawer-ready) .md-main__inner { display: block; }
+  html:not(.conf2git-drawer-ready) .md-sidebar--primary {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: none;
+    box-shadow: none;
+  }
+  html:not(.conf2git-drawer-ready) #__drawer:checked ~ .md-container .md-sidebar--primary {
+    transform: none;
+    box-shadow: none;
+  }
+  html:not(.conf2git-drawer-ready) .md-sidebar--primary .md-sidebar__scrollwrap {
+    position: static;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+  html:not(.conf2git-drawer-ready) .md-sidebar--primary .md-nav,
+  html:not(.conf2git-drawer-ready) .md-sidebar--primary .md-nav__list {
+    display: block;
+    position: static;
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  html:not(.conf2git-drawer-ready) .md-header [for='__drawer'],
+  html:not(.conf2git-drawer-ready) .md-overlay,
+  html:not(.conf2git-drawer-ready) .md-nav__link[for='__toc'],
+  html:not(.conf2git-drawer-ready) .md-nav .md-nav > .md-nav__title {
+    display: none;
+  }
+  html:not(.conf2git-drawer-ready) .md-nav__link[for='__toc'] + .md-nav__link { display: flex; }
+
+  html.conf2git-drawer-ready .conf2git-drawer-toggle { display: inline-block; }
+  html.conf2git-drawer-ready .md-sidebar--primary { visibility: hidden; }
+  html.conf2git-drawer-ready #__drawer:checked ~ .md-container .md-sidebar--primary {
+    visibility: visible;
+  }
+  html.conf2git-drawer-ready .md-sidebar--primary .md-sidebar__scrollwrap { overflow-y: auto; }
+  html.conf2git-drawer-ready .md-sidebar--primary .md-nav--primary {
+    position: static;
+    height: auto;
+    min-height: 100%;
+  }
+  html.conf2git-drawer-ready .conf2git-drawer-close {
+    display: block;
+    width: 100%;
+    padding: .8rem;
+    color: var(--md-primary-bg-color);
+    background: var(--md-primary-fg-color);
+    text-align: start;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .conf2git-drawer-close:focus-visible { outline-offset: -4px; outline-color: var(--conf2git-lime); }
+  html.conf2git-drawer-ready .conf2git-disclosure {
+    width: 100%;
+    margin: 0;
+    text-align: start;
+    font: inherit;
+  }
+
+  /* Inline disclosures replace the sliding subpanels. A collapsed panel is
+     display:none, so neither it nor covered parent links can receive focus. */
+  html.conf2git-drawer-ready .md-nav--primary .md-nav {
+    position: static;
+    height: auto;
+    width: auto;
+    opacity: 1;
+    visibility: inherit;
+    transform: none;
+    transition: none;
+  }
+  html.conf2git-drawer-ready .md-nav--primary .md-nav > .md-nav__title { display: none; }
+  html.conf2git-drawer-ready .md-nav--primary .md-nav__list { overflow: visible; }
+  html.conf2git-drawer-ready .md-nav--primary .md-nav .md-nav__list { padding-inline-start: .6rem; }
+  html.conf2git-drawer-ready .md-nav__toggle:not(:checked) ~ .md-nav { display: none; }
+  html.conf2git-drawer-ready .md-nav__toggle:checked ~ .md-nav { display: block; }
+}
+
+/* Material exposes an embedded TOC only below 60em. Keep the tablet TOC and
+   ordinary active-page link unchanged above that breakpoint. */
+@media screen and (min-width: 60em) and (max-width: 76.234375em) {
+  html.conf2git-drawer-ready [data-conf2git-toggle='__toc'],
+  html.conf2git-drawer-ready #__toc ~ .md-nav { display: none; }
+}
+@media screen and (max-width: 59.984375em) {
+  html.conf2git-drawer-ready [data-conf2git-toggle='__toc'] + a.md-nav__link { display: none; }
+}

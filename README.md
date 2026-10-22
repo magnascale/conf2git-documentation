@@ -58,3 +58,24 @@ modes after theme upgrades.
 
 Changes should be reviewed in a pull request. Merging to `main` publishes the site; a local
 preview or draft pull request does not authorize a production deployment.
+
+## Keyboard-navigation regression tests
+
+Pull requests also run Chromium against the generated site, without deploying it. The suite
+checks keyboard menu access, Enter/Space, Escape and focus return, hidden-panel exclusion,
+focus cycling, nested disclosures, TOC focus, desktop resize, search, appearance, and the
+static fallback when JavaScript is unavailable. Screenshots are retained as a CI artifact.
+
+To run in a development environment that permits a local test server and browser:
+
+```shell
+python -m pip install --require-hashes -r requirements-browser.txt
+python -m playwright install chromium
+python -m mkdocs build --strict
+python scripts/test_navigation.py
+```
+
+The suite covers 320, 390, 590, 1000 and 1440 CSS-pixel widths. 590px is the reflow width
+observed at 200% browser zoom on an 1180px window; viewport tests do not replace real-device,
+screen-reader or actual browser-zoom testing. Browser dependencies are development-only and
+hash-locked separately in `requirements-browser.txt`.

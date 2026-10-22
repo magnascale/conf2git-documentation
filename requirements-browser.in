@@ -1,0 +1,2 @@
+# Development/CI only; not shipped in the documentation site.
+playwright==1.64.1
