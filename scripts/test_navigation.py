@@ -55,7 +55,7 @@ class NavigationTests(unittest.TestCase):
         self.close = self.page.get_by_role("button", name="Close navigation", exact=True)
 
     def tearDown(self):
-        self.page.screenshot(path=str(RESULTS / f"{self._testMethodName}.png"))
+        self.page.screenshot(animations="disabled", path=str(RESULTS / f"{self._testMethodName}.png"))
         self.context.close()
         self.assertEqual(self.errors, [], "Unexpected browser errors")
 
@@ -122,7 +122,7 @@ class NavigationTests(unittest.TestCase):
         self.assertFalse(self.page.locator(f"#{panel_id}").evaluate("e => e.contains(document.activeElement)"))
         for name in ["Configure and sync", "Security and limits", "Help and recovery"]:
             self.sidebar.get_by_role("button", name=name, exact=True).press("Enter")
-        self.page.screenshot(path=str(RESULTS / "compact-expanded-590.png"))
+        self.page.screenshot(animations="disabled", path=str(RESULTS / "compact-expanded-590.png"))
         for path in (ROOT / "docs").glob("*.md"):
             route = "" if path.stem == "index" else path.stem + "/"
             # Home has a dedicated logo link as well as its active-page TOC.
@@ -151,7 +151,7 @@ class NavigationTests(unittest.TestCase):
         self.assertIsNone(self.sidebar.get_attribute("aria-modal"))
         self.assertEqual(self.sidebar.locator(".conf2git-disclosure").count(), 0)
         expect(self.sidebar.get_by_role("link", name="Get started", exact=True)).to_be_visible()
-        self.page.screenshot(path=str(RESULTS / "desktop-1440.png"))
+        self.page.screenshot(animations="disabled", path=str(RESULTS / "desktop-1440.png"))
         self.sidebar.get_by_role("link", name="Get started", exact=True).focus()
         self.page.set_viewport_size({"width": 590, "height": 820})
         expect(self.opener).to_be_focused()
@@ -167,10 +167,10 @@ class NavigationTests(unittest.TestCase):
                 expect(self.close).to_be_focused()
                 toc = self.sidebar.locator("[data-conf2git-toggle='__toc']")
                 self.assertEqual(toc.is_visible(), width < 960)
-                self.page.screenshot(path=str(RESULTS / f"compact-open-{width}.png"))
+                self.page.screenshot(animations="disabled", path=str(RESULTS / f"compact-open-{width}.png"))
                 self.page.keyboard.press("Escape")
                 self.assertTrue(self.page.evaluate("() => document.documentElement.scrollWidth <= innerWidth"))
-                self.page.screenshot(path=str(RESULTS / f"compact-{width}.png"))
+                self.page.screenshot(animations="disabled", path=str(RESULTS / f"compact-{width}.png"))
 
     def test_desktop_search_and_appearance(self):
         self.page.set_viewport_size({"width": 1440, "height": 1000})
@@ -207,7 +207,7 @@ class NavigationTests(unittest.TestCase):
                 self.assertAlmostEqual(nav.bounding_box()["x"], before, delta=1)
                 self.assertEqual(page.locator(".md-sidebar--primary").evaluate("e => getComputedStyle(e).transform"), "none")
                 expect(nav.get_by_role("link", name="Home", exact=True)).to_be_visible()
-                page.screenshot(path=str(RESULTS / f"fallback-js-{javascript}.png"))
+                page.screenshot(animations="disabled", path=str(RESULTS / f"fallback-js-{javascript}.png"))
                 context.close()
 
 
