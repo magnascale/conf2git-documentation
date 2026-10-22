@@ -49,7 +49,9 @@ class NavigationTests(unittest.TestCase):
         self.page.goto(self.base)
         expect(self.page.locator("html.conf2git-drawer-ready")).to_have_count(1)
         self.sidebar = self.page.locator("#conf2git-navigation")
-        self.opener = self.page.get_by_role("button", name="Open navigation", exact=True)
+        expect(self.page.get_by_role("button", name="Open navigation", exact=True)).to_be_visible()
+        # Keep resolving the element while its containing header is inert.
+        self.opener = self.page.locator(".conf2git-drawer-toggle")
         self.close = self.page.get_by_role("button", name="Close navigation", exact=True)
 
     def tearDown(self):
@@ -72,6 +74,7 @@ class NavigationTests(unittest.TestCase):
         expect(self.sidebar).to_be_hidden()
         self.assertTrue(self.sidebar.evaluate("e => e.inert"))
         self.assertEqual(self.sidebar.locator("a").first.evaluate("e => getComputedStyle(e).visibility"), "hidden")
+        self.assertEqual(self.sidebar.locator("a[href='getting-started/']").evaluate("e => getComputedStyle(e).visibility"), "hidden")
         for _ in range(35):
             self.page.keyboard.press("Tab")
             self.assertFalse(self.sidebar.evaluate("e => e.contains(document.activeElement)"))
@@ -193,7 +196,8 @@ class NavigationTests(unittest.TestCase):
                 for name in ["Home", "FAQ", "Get started", "GitHub authorization", "Conversion support", "Backup limitations", "Recovery and lifecycle"]:
                     expect(nav.get_by_role("link", name=name, exact=True)).to_be_visible()
                 before = nav.bounding_box()["x"]
-                nav.locator(":scope > label.md-nav__title").click(position={"x": 200, "y": 20})
+                title = nav.locator(":scope > label.md-nav__title")
+                title.click(position={"x": 200, "y": title.bounding_box()["height"] - 8})
                 expect(page.locator("#__drawer")).to_be_checked()
                 self.assertAlmostEqual(nav.bounding_box()["x"], before, delta=1)
                 self.assertEqual(page.locator(".md-sidebar--primary").evaluate("e => getComputedStyle(e).transform"), "none")
