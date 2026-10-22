@@ -146,6 +146,7 @@ class NavigationTests(unittest.TestCase):
         self.open_keyboard()
         self.page.set_viewport_size({"width": 1440, "height": 1000})
         expect(self.opener).to_be_hidden()
+        expect(self.opener).to_have_attribute("aria-expanded", "false")
         self.assertFalse(self.sidebar.evaluate("e => e.inert"))
         self.assertIsNone(self.sidebar.get_attribute("aria-modal"))
         self.assertEqual(self.sidebar.locator(".conf2git-disclosure").count(), 0)

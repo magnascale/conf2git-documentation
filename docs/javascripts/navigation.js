@@ -55,6 +55,12 @@
 
   let open = false;
   let returnFocus = true;
+  let lastFocused = document.activeElement;
+  document.addEventListener('focusin', event => {
+    if (event.target !== document.body && event.target !== document.documentElement) {
+      lastFocused = event.target;
+    }
+  });
   const background = new Map();
   const visible = element => element.getClientRects().length > 0 &&
     getComputedStyle(element).visibility === 'visible';
@@ -114,7 +120,10 @@
   close.addEventListener('click', () => drawer.click());
   drawer.addEventListener('change', sync);
   compact.addEventListener('change', () => {
-    const previousFocus = document.activeElement;
+    // CSS may hide the focused link before matchMedia dispatches its event,
+    // causing the browser to move activeElement to body without a focus event.
+    const previousFocus = document.activeElement === document.body
+      ? lastFocused : document.activeElement;
     if (!compact.matches && drawer.checked) drawer.click();
     sync();
     if (!visible(previousFocus) || previousFocus.closest('[inert]')) {
