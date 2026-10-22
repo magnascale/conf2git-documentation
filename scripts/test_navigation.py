@@ -69,6 +69,7 @@ class NavigationTests(unittest.TestCase):
         self.page.keyboard.press(key)
         expect(self.opener).to_have_attribute("aria-expanded", "true")
         expect(self.close).to_be_focused()
+        expect(self.sidebar).to_be_in_viewport(ratio=1)
 
     def test_closed_drawer_excluded_from_tab_order(self):
         expect(self.sidebar).to_be_hidden()
@@ -165,6 +166,7 @@ class NavigationTests(unittest.TestCase):
                 self.page.set_viewport_size({"width": width, "height": 820})
                 self.opener.press("Enter")
                 expect(self.close).to_be_focused()
+                expect(self.sidebar).to_be_in_viewport(ratio=1)
                 toc = self.sidebar.locator("[data-conf2git-toggle='__toc']")
                 self.assertEqual(toc.is_visible(), width < 960)
                 self.page.screenshot(animations="disabled", path=str(RESULTS / f"compact-open-{width}.png"))
@@ -186,6 +188,8 @@ class NavigationTests(unittest.TestCase):
         for _ in range(3):
             self.page.locator('.md-header label[for^="__palette_"]:visible').click()
             schemes.add(self.page.locator("body").get_attribute("data-md-color-scheme"))
+            if self.page.locator("body").get_attribute("data-md-color-scheme") == "slate":
+                self.page.screenshot(animations="disabled", path=str(RESULTS / "desktop-dark-1440.png"))
         self.assertEqual(schemes, {"default", "slate"})
 
     def test_static_fallback_without_custom_script_or_javascript(self):
