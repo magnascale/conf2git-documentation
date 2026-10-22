@@ -26,8 +26,15 @@ dark surfaces. Navigation groups existing files by task without changing their U
 
 Tables keep Material’s horizontal overflow container. Inline diagnostic codes may wrap;
 preformatted blocks keep native scrolling. Small screens use native Material navigation and
-a smaller headline. No custom interaction JavaScript, external font requests, analytics, or
-background repository-metadata requests are introduced.
+a smaller headline. The local navigation enhancement makes the compact drawer keyboard
+operable, hides closed panels from Tab, and uses inline disclosure groups rather than
+overlapping sliding subpanels. Desktop navigation is unchanged. No external font requests,
+analytics, or background repository-metadata requests are introduced.
+
+The drawer has explicit open/close buttons, Escape and focus return, a bounded focus cycle,
+and modal semantics only while open at compact widths. If its enhancement cannot initialize,
+compact navigation falls back to static, expanded guide links. The CSS and JavaScript
+breakpoints intentionally match Material 9.7; test them when upgrading the theme.
 
 ## Maintenance and acceptance
 
