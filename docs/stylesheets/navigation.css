@@ -1,5 +1,5 @@
 /* Match Material 9.7's drawer breakpoint; desktop navigation is unchanged. */
-.conf2git-drawer-toggle,
+.md-header__button.conf2git-drawer-toggle,
 .conf2git-drawer-close {
   display: none;
 }

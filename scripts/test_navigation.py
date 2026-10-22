@@ -172,7 +172,9 @@ class NavigationTests(unittest.TestCase):
     def test_desktop_search_and_appearance(self):
         self.page.set_viewport_size({"width": 1440, "height": 1000})
         search = self.page.get_by_role("textbox", name="Search", exact=True)
-        search.fill("authorization")
+        search.click()
+        expect(self.page.locator(".md-search-result__meta")).to_have_text("Type to start searching")
+        search.press_sequentially("authorization")
         result = self.page.locator(".md-search-result a[href*='github-authorization/']").first
         expect(result).to_be_visible()
         result.click()
