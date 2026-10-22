@@ -122,6 +122,7 @@ class NavigationTests(unittest.TestCase):
         self.assertFalse(self.page.locator(f"#{panel_id}").evaluate("e => e.contains(document.activeElement)"))
         for name in ["Configure and sync", "Security and limits", "Help and recovery"]:
             self.sidebar.get_by_role("button", name=name, exact=True).press("Enter")
+        self.page.screenshot(path=str(RESULTS / "compact-expanded-590.png"))
         for path in (ROOT / "docs").glob("*.md"):
             route = "" if path.stem == "index" else path.stem + "/"
             # Home has a dedicated logo link as well as its active-page TOC.
@@ -161,10 +162,11 @@ class NavigationTests(unittest.TestCase):
         for width in [320, 390, 590, 1000]:
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 820})
-                self.opener.click()
+                self.opener.press("Enter")
                 expect(self.close).to_be_focused()
                 toc = self.sidebar.locator("[data-conf2git-toggle='__toc']")
                 self.assertEqual(toc.is_visible(), width < 960)
+                self.page.screenshot(path=str(RESULTS / f"compact-open-{width}.png"))
                 self.page.keyboard.press("Escape")
                 self.assertTrue(self.page.evaluate("() => document.documentElement.scrollWidth <= innerWidth"))
                 self.page.screenshot(path=str(RESULTS / f"compact-{width}.png"))
