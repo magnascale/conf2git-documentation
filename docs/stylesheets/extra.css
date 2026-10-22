@@ -1,57 +1,224 @@
+/* Magnascale's reading-focused documentation system, shared with the SQR portal. */
+@font-face {
+  font-family: Manrope;
+  src: url('../assets/fonts/Manrope.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
 :root {
-  --conf2git-navy: #06152f;
-  --conf2git-blue: #387fda;
-  --conf2git-cyan: #18d5e8;
-  --conf2git-coral: #ff6558;
+  --md-text-font: Manrope, sans-serif;
+  --md-primary-fg-color: #153f34;
+  --md-primary-fg-color--light: #285a48;
+  --md-primary-fg-color--dark: #103127;
+  --md-primary-bg-color: #fffefa;
+  --md-primary-bg-color--light: #fffefa;
+  --md-footer-bg-color: #153f34;
+  --md-footer-bg-color--dark: #103127;
+  --conf2git-lime: #d7ef90;
 }
 
-.navbar {
-  background: linear-gradient(110deg, var(--conf2git-navy), #102b69);
-  border-bottom: 2px solid var(--conf2git-cyan);
-  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 22%);
+[data-md-color-scheme='default'] {
+  --md-default-bg-color: #fffefa;
+  --md-default-fg-color: #253c34;
+  --md-default-fg-color--light: #496156;
+  --md-default-fg-color--lighter: #65796e;
+  --md-default-fg-color--lightest: #dce3d7;
+  --md-accent-fg-color: #285a48;
+  --md-accent-fg-color--transparent: #285a481a;
+  --md-typeset-a-color: #245e47;
+  --md-code-bg-color: #f0f1e9;
+  --md-code-fg-color: #253c34;
+  --conf2git-heading: #153f34;
+  --conf2git-border: #dce3d7;
+  --conf2git-tint: #f0f2e8;
+  --conf2git-focus: #467047;
 }
 
-.navbar-brand {
-  align-items: center;
-  display: inline-flex;
+/* Keep the existing light, dark, and system choices rather than dropping dark mode. */
+[data-md-color-scheme='slate'] {
+  --md-hue: 155;
+  --md-default-bg-color: #14261f;
+  --md-default-fg-color: #edf1e7;
+  --md-default-fg-color--light: #c2d0c3;
+  --md-default-fg-color--lighter: #a2b5a5;
+  --md-default-fg-color--lightest: #395347;
+  --md-accent-fg-color: #d7ef90;
+  --md-accent-fg-color--transparent: #d7ef901a;
+  --md-typeset-a-color: #d7ef90;
+  --md-code-bg-color: #20372d;
+  --md-code-fg-color: #edf1e7;
+  --conf2git-heading: #e7f1d5;
+  --conf2git-border: #395347;
+  --conf2git-tint: #20372d;
+  --conf2git-focus: #d7ef90;
+}
+
+html {
+  scroll-padding-top: 8rem;
+}
+
+body {
+  font-feature-settings: 'ss01';
+}
+
+::selection {
+  background: var(--conf2git-lime);
+  color: #153f34;
+}
+
+:focus-visible {
+  outline: 3px solid var(--conf2git-focus);
+  outline-offset: 3px;
+}
+
+/* Navigation sits on forest in both schemes, so its focus indicator is always lime. */
+.md-header :focus-visible,
+.md-tabs :focus-visible,
+.md-footer :focus-visible {
+  outline-color: var(--conf2git-lime);
+}
+
+input,
+textarea {
+  caret-color: currentColor;
+}
+
+.md-header {
+  box-shadow: 0 3px 16px #1031271f;
+}
+
+.md-header__topic {
   font-weight: 700;
-  letter-spacing: -0.01em;
 }
 
-.navbar-brand::before {
-  background: url('../assets/conf2git-logo.png') center / contain no-repeat;
-  content: '';
-  display: inline-block;
-  height: 2.35rem;
-  margin-right: 0.65rem;
-  width: 2.35rem;
+.md-header .md-logo img {
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: contain;
 }
 
-a {
-  text-underline-offset: 0.16em;
+.md-tabs {
+  background: #153f34;
 }
 
-.bs-sidebar .nav > li > a.active,
-.bs-sidebar .nav > li > a:hover,
-.bs-sidebar .nav > li > a:focus {
-  border-left-color: var(--conf2git-coral);
+.md-tabs__link {
+  opacity: .88;
 }
 
-table {
-  font-size: 0.94rem;
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__link:hover,
+.md-tabs__link:focus-visible {
+  color: var(--conf2git-lime);
+  opacity: 1;
 }
 
-thead {
-  border-bottom: 2px solid var(--conf2git-blue);
+.md-typeset {
+  font-size: .82rem;
+  line-height: 1.8;
 }
 
-code {
+.md-typeset h1 {
+  color: var(--conf2git-heading);
+  font-size: 2.1rem;
+  font-weight: 750;
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+
+.md-typeset h2 {
+  color: var(--conf2git-heading);
+  font-weight: 730;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  margin-top: 2.1em;
+  text-wrap: balance;
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  color: var(--conf2git-heading);
+  font-weight: 700;
+}
+
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol {
+  max-width: 73ch;
+}
+
+.md-typeset a {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.md-typeset a.headerlink {
+  text-decoration: none;
+}
+
+.md-typeset li {
+  margin-bottom: .5em;
+}
+
+.md-typeset strong {
+  font-weight: 750;
+}
+
+.md-typeset table:not([class]) {
+  border-color: var(--conf2git-border);
+  font-size: .73rem;
+  line-height: 1.65;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--conf2git-tint);
+  color: var(--conf2git-heading);
+  font-weight: 750;
+}
+
+.md-typeset td {
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset :not(pre) > code {
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 575.98px) {
-  .navbar-brand::before {
-    height: 2rem;
-    width: 2rem;
+.md-typeset blockquote {
+  border-color: var(--conf2git-border);
+  color: var(--md-default-fg-color--light);
+}
+
+.md-nav__link--active {
+  font-weight: 750;
+}
+
+.md-footer-meta {
+  background: #103127;
+}
+
+@media (min-width: 76.25em) {
+  .md-grid {
+    max-width: 65rem;
+  }
+}
+
+@media (max-width: 44.99em) {
+  .md-typeset h1 {
+    font-size: 1.65rem;
+  }
+
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    min-width: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

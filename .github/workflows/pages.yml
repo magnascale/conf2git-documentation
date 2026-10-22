@@ -25,10 +25,13 @@ jobs:
           cache: pip
 
       - name: Install documentation dependencies
-        run: python -m pip install --disable-pip-version-check -r requirements.txt
+        run: python -m pip install --disable-pip-version-check --require-hashes -r requirements.txt
 
       - name: Build documentation
         run: python -m mkdocs build --strict --site-dir site
+
+      - name: Validate links, assets, and search
+        run: python scripts/check_site.py
 
       - name: Configure GitHub Pages
         if: github.event_name != 'pull_request'
