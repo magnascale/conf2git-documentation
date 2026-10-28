@@ -163,7 +163,7 @@ In GitHub, verify all of the following:
 
 - the configured non-default target branch exists;
 - the repository default branch is unchanged;
-- the configured base path contains page directories ending in `--<page-id>/index.md`;
+- the configured base path contains page directories ending in `--<page-id>/page.md`;
 - referenced supported images appear under their page's `assets/` directory;
 - `<base>/.conf2git/manifest.json` exists; and
 - the commit link shown by Conf2Git points to the target branch's published commit.
